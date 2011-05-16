@@ -33,13 +33,13 @@ namespace :env do
   end
   
   task :set_dirs do
-	Folders[:proj_key_out] = File.join(Folders[:src], Projects[:proj_key][:dir], 'bin', CONFIGURATION)
-	CLEAN.include(Folders[:proj_key_out])
+	Folders[:proj_out] = File.join(Folders[:src], Projects[:proj][:dir], 'bin', CONFIGURATION)
+	CLEAN.include(Folders[:proj_out])
 	
 	# for tests
-	Folders[:proj_key] = File.join(Folders[:src], Projects[:proj_key][:test_dir], 'bin', CONFIGURATION)
-	Files[:proj_key][:test] = File.join(Folders[:proj_key_test_out], "#{Projects[:proj_key][:test_dir]}.dll")
-	CLEAN.include(Folders[:proj_key_test_out])
+	Folders[:proj] = File.join(Folders[:src], Projects[:proj][:test_dir], 'bin', CONFIGURATION)
+	Files[:proj][:test] = File.join(Folders[:proj_test_out], "#{Projects[:proj][:test_dir]}.dll")
+	CLEAN.include(Folders[:proj_test_out])
   end
   
   desc "set debug environment variables"

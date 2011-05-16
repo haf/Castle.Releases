@@ -13,11 +13,11 @@ Folders = {
   :nunit => File.join("tools", "NUnit", "bin"),
   
   :packages => "packages",
-  :nuspec => File.join("build", "nuspec", Projects[:proj_key][:dir]),
+  :nuspec => File.join("build", "nuspec", Projects[:proj][:dir]),
   :nuget => File.join("build", "nuget"),
   
-  :proj_key_out => 'placeholder - specify build environment',
-  :proj_key_test_out => 'placeholder - specify build environment',
+  :proj_out => 'placeholder - specify build environment',
+  :proj_test_out => 'placeholder - specify build environment',
   :binaries => "placeholder - specify build environment"
 }
 
@@ -26,8 +26,8 @@ Files = {
   :version => "VERSION",
   :nuget_private_key => "NUGET_KEY",
   
-  :proj_key => {
-    :nuspec => File.join(Folders[:nuspec], "#{Projects[:proj_key][:id]}.nuspec"),
+  :proj => {
+    :nuspec => File.join(Folders[:nuspec], "#{Projects[:proj][:id]}.nuspec"),
 	:test_log => File.join(Folders[:tests], "Castle.XXX.Tests.log"),
 	:test_xml => File.join(Folders[:tests], "Castle.XXX.Tests.xml"),
 	:test => 'ex: Castle.XXX.Tests.dll'
