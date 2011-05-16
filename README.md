@@ -39,10 +39,12 @@ git checkout master
 
  You're done with saving what has been in buildscripts.
  
- 7. name the other project "Releases", and fetch. 
- 8. prepare for the later step to record the result as a merge.
- 9. read "master" branch of Releases to the subdirectory "buildscripts".
- 10. record the merge result.
+<ol>
+	<li>name the other project "Releases", and fetch.</li>
+	<li>prepare for the later step to record the result as a merge.</li>
+	<li>read "master" branch of Releases to the subdirectory "buildscripts".</li>
+	<li>record the merge result.</li>
+</ol>
  
 7-10:
  
