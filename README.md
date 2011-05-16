@@ -37,7 +37,8 @@ git commit -m "branch with buildscripts"
 git checkout master
 ```
 
- You're done with saving what has been in buildscripts.
+ You're done with saving what has been in buildscripts. Now let's add the subtree.
+ [More Info](http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)
  
 <ol>
 	<li value="7">name the other project "Releases", and fetch.</li>
