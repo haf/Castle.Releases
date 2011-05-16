@@ -72,3 +72,19 @@ git branch -d tmp
 ```
 git pull -s subtree Releases master
 ```
+
+# What now?
+ 
+ When this is done, enjoy your work and start configuring your project! First
+ you'll need the rakefile, so do
+ 
+```
+mv buildscripts/rakefile.rb ./rakefile.rb
+```
+
+ then update these files with your project data and paths:
+ 
+ * buildscripts/project_data.rb
+ * buildscripts/paths.rb
+ 
+ then verify that you have a tools directory and that it contains whatever paths.rb points to.
