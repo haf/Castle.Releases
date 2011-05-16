@@ -26,6 +26,7 @@ It lets you add a subtree to `/buildscripts` which contains:
  5. Go back to the branch you came from
  
 1-5:
+
 ```
 $ git rm -r --cached buildscripts
 $ git commit -m "intermediate commit to remove buildscripts from index."
@@ -44,7 +45,8 @@ $ git checkout master
  10. merge back what you had before merging the subtree. possible 'git merge -s ours tmp
  11. remove the tmp branch.
 
-6-11 
+6-11
+ 
 ```
 $ git remote add -f Releases https://haf@github.com/haf/Castle.Releases.git 
 $ git merge -s ours --no-commit Releases/master 
