@@ -1,4 +1,4 @@
-require 'paths'
+require File.dirname(__FILE__) + '/paths'
 require 'ostruct'
 require 'albacore/config/netversion'
 require 'albacore/support/openstruct'
