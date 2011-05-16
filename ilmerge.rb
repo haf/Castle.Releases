@@ -1,3 +1,5 @@
+# ilmerge task
+
 require 'albacore/albacoretask'
 require File.dirname(__FILE__) + '/ilmergeconfig.rb'
 

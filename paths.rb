@@ -1,3 +1,7 @@
+# File that specifies where rake can find certain interesting tools and folders
+
+require File.dirname(__FILE__) + '/project_data'
+
 root_folder = File.expand_path("#{File.dirname(__FILE__)}/..")
 
 Folders = {
