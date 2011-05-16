@@ -1,0 +1,57 @@
+# copyright Henrik Feldt 2011
+$: << './'
+require 'albacore'
+require 'buildscripts/albacore_mods'
+require 'buildscripts/ilmerge'
+require 'version_bumper'
+require 'rake/clean'
+require 'buildscripts/project_data'
+require 'buildscripts/paths'
+require 'buildscripts/utils'
+require 'buildscripts/environment'
+
+task :default => [:release]
+
+desc "build in release mode"
+task :release => ["env:release", "proj:build"]
+
+desc "build in debug mode"
+task :debug => ["env:debug", "proj:build"]
+
+desc "mimic build server"
+task :ci => ["clobber", "proj:build"]
+
+CLOBBER.include(Folders[:out])
+CLOBBER.include(Folders[:packages])
+
+namespace :proj do
+
+  task :build => [:msbuild]
+
+  msbuild :msbuild, :framework do |msb, args|
+    # msb.use = :args[:framework] || :net40
+    config = "#{FRAMEWORK.upcase}-#{CONFIGURATION}"
+    puts "Building config #{config} with MsBuild"
+    msb.properties :Configuration => config
+    msb.targets :Clean, :Build
+    msb.solution = Files[:sln]
+  end
+  
+  assemblyinfo :version do |asm|
+    data = commit_data() #hash + date
+    asm.product_name = asm.title = Projects[:proj][:title]
+    asm.description = Projects[:proj][:description] + " #{data[0]} - #{data[1]}"
+    # This is the version number used by framework during build and at runtime to locate, link and load the assemblies. When you add reference to any assembly in your project, it is this version number which gets embedded.
+    asm.version = VERSION
+    # Assembly File Version : This is the version number given to file as in file system. It is displayed by Windows Explorer. Its never used by .NET framework or runtime for referencing.
+    asm.file_version = VERSION_INFORMAL
+    asm.custom_attributes :AssemblyInformationalVersion => "#{VERSION}", # displayed as product version in explorer
+      :CLSCompliantAttribute => false,
+      :AssemblyConfiguration => "#{CONFIGURATION}",
+      :Guid => Projects[:proj][:guid]
+    asm.com_visible = false
+    asm.copyright = Projects[:proj][:copyright]
+    asm.output_file = 'src/CommonAssemblyInfo.cs'
+  end
+  
+end

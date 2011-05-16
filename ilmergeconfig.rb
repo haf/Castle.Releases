@@ -1,3 +1,4 @@
+require 'paths'
 require 'ostruct'
 require 'albacore/config/netversion'
 require 'albacore/support/openstruct'
@@ -18,7 +19,7 @@ module Configuration
     end
 
     def self.included(mod)
-      self.ilmergeconfig.command = File.join('lib', 'ilmerge', "ilmerge.exe")
+      self.ilmergeconfig.command = Commands[:ilmerge]
     end
   end
 end
