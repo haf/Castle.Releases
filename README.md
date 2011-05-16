@@ -40,7 +40,7 @@ git checkout master
  You're done with saving what has been in buildscripts.
  
 <ol>
-	<li>name the other project "Releases", and fetch.</li>
+	<li value="7">name the other project "Releases", and fetch.</li>
 	<li>prepare for the later step to record the result as a merge.</li>
 	<li>read "master" branch of Releases to the subdirectory "buildscripts".</li>
 	<li>record the merge result.</li>
